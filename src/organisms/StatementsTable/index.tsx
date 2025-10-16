@@ -8,6 +8,9 @@ import type { IStatementResponse } from '../../interfaces'
 import { TableHeader } from '../../molecules/TableHeader'
 import { TableRowCustom } from '../../atoms/TableRowCustom'
 import { TableCellCustom } from '../../atoms/TableCell'
+import { Badge } from '../../atoms/Badge'
+import { TransactionAmount } from '../../molecules/TransactionAmount'
+import { formatDate } from '../../utils'
   
 interface IStatementsTableProps {
   data: IStatementResponse
@@ -23,11 +26,15 @@ export const StatementsTable: React.FC<IStatementsTableProps> = ({ data }) => {
         <TableBody>
           {data.data.map((row, index) => (
             <TableRowCustom key={index}>
-              <TableCellCustom>{new Date(row.transaction_date).toLocaleDateString()}</TableCellCustom>
+              <TableCellCustom>{formatDate(row.transaction_date)}</TableCellCustom>
               <TableCellCustom>{row.description}</TableCellCustom>
-              <TableCellCustom>{row.amount}</TableCellCustom>
+              <TableCellCustom>
+                {<TransactionAmount amount={Number(row.amount || 0)} type={row.product_type} />}
+              </TableCellCustom>
               <TableCellCustom>{row.username}</TableCellCustom>
-              <TableCellCustom>{row.product_type}</TableCellCustom>
+              <TableCellCustom>{
+                <Badge type={row.product_type} />}
+              </TableCellCustom>
             </TableRowCustom>
           ))}
         </TableBody>

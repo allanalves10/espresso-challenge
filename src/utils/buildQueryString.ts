@@ -1,4 +1,4 @@
-import { IStatementFilters } from "../interfaces"
+import type { IStatementFilters } from "../interfaces"
 
 export const buildQueryString = (filters: IStatementFilters): string => {
     const params = new URLSearchParams()

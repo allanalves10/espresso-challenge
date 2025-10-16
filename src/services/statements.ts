@@ -1,4 +1,4 @@
-import { IStatementFilters, IStatementResponse } from "../interfaces/statement.interface"
+import type { IStatementFilters, IStatementResponse } from "../interfaces/statement.interface"
 import { buildQueryString } from "../utils"
 import { api } from "./api"
 
@@ -10,7 +10,8 @@ export const getStatements = async (
       const { data } = await api.get<IStatementResponse>(`/statements${query}`)
       return data
     } catch (error) {
-      console.error('Erro ao buscar statements:', error)
+      console.error('Erro ao buscar extratos:', error)
+
       throw new Error('Erro ao buscar extratos.')
     }
 }

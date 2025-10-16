@@ -1,1 +1,1 @@
-export * from './statement.interface';
+export * from './statement.interface'

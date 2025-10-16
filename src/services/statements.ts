@@ -6,12 +6,12 @@ export const getStatements = async (
     filters: IStatementFilters = {}
 ): Promise<IStatementResponse> => {
     try {
-      const query = buildQueryString(filters)
-      const { data } = await api.get<IStatementResponse>(`/statements${query}`)
-      return data
+        const query = buildQueryString(filters)
+        const { data } = await api.get<IStatementResponse>(`/statements${query}`)
+        return data
     } catch (error) {
-      console.error('Erro ao buscar extratos:', error)
+        console.error('Erro ao buscar extratos:', error)
 
-      throw new Error('Erro ao buscar extratos.')
+        throw new Error('Erro ao buscar extratos.')
     }
 }

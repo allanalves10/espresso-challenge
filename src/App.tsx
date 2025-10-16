@@ -1,18 +1,29 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getStatements } from "./services"
+import { StatementsTable } from "./organisms/StatementsTable";
+import type { IStatementResponse } from "./interfaces";
 
 function App() {
+  const [statements, setStatements] = useState<IStatementResponse>();
+
   useEffect(() => {
     (async () => {
-      const response = await getStatements();
-      console.log(response)
+      try {
+        const response = await getStatements();
+
+        setStatements(response);
+      } catch (err) {
+        console.error((err as Error).message);
+      }
     }
     )()
   }, [])
 
   return (
     <>
-      <h1>...</h1>
+      {statements && 
+        <StatementsTable data={statements} />
+      }
     </>
   )
 }

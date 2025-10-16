@@ -29,5 +29,5 @@ export interface IStatementFilters {
     product_type?: 'business_account' | 'expense_management' | 'suppliers'
     page?: number
     limit?: number
-  }
+}
   

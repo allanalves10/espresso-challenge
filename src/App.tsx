@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { getStatements } from "./services"
 import { StatementsTable } from "./organisms/StatementsTable";
 import type { IStatementResponse } from "./interfaces";
+import { Header } from "./organisms/Header";
+import { Box } from "@mui/material";
 
 function App() {
   const [statements, setStatements] = useState<IStatementResponse>();
@@ -20,11 +22,12 @@ function App() {
   }, [])
 
   return (
-    <>
+    <Box display="flex" flexDirection="column">
+      <Header />
       {statements && 
         <StatementsTable data={statements} />
       }
-    </>
+    </Box>
   )
 }
 

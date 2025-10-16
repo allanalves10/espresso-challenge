@@ -29,7 +29,7 @@ export const StatementsTable: React.FC<IStatementsTableProps> = ({ data }) => {
               <TableCellCustom>{formatDate(row.transaction_date)}</TableCellCustom>
               <TableCellCustom>{row.description}</TableCellCustom>
               <TableCellCustom>
-                {<TransactionAmount amount={Number(row.amount || 0)} type={row.product_type} />}
+                {<TransactionAmount amount={Number(row.amount || 0)} type={row.transaction_type} />}
               </TableCellCustom>
               <TableCellCustom>{row.username}</TableCellCustom>
               <TableCellCustom>{

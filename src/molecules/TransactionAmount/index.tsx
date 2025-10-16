@@ -6,7 +6,7 @@ interface ITransactionAmountProps {
 }
 
 export const TransactionAmount = ({ type, amount }: ITransactionAmountProps) => {
-    const isReceived = type === 'business_account'
+    const isReceived = type === 'credit'
 
     const formattedValue = amount.toLocaleString('pt-BR', {
         minimumFractionDigits: 2,

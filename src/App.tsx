@@ -1,11 +1,10 @@
 import { useEffect } from "react"
-import { api } from "./services/api"
-import type { IStatementResponse } from "./interfaces"
+import { getStatements } from "./services"
 
 function App() {
   useEffect(() => {
     (async () => {
-      const response = await api.get<IStatementResponse>("")
+      const response = await getStatements();
       console.log(response)
     }
     )()

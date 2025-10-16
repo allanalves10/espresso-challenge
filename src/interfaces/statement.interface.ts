@@ -22,4 +22,12 @@ export interface IStatementResponse {
     metadata: IMetadata
     data: IStatement[]
 }
+
+export interface IStatementFilters {
+    start_date?: string
+    end_date?: string
+    product_type?: 'business_account' | 'expense_management' | 'suppliers'
+    page?: number
+    limit?: number
+  }
   

@@ -12,14 +12,14 @@ export const ChipButton: FC<IChipButtonProps> = ({ label, icon, selected = false
   return (
     <Chip
       label={
-        <Typography display='flex' alignItems="center" gap="4px" padding="12px">  
+        <Typography display='flex' alignItems="center" gap="4px" paddingX="12px">  
           {icon} {label}
         </Typography>
       }
       color='default'
       variant={selected ? undefined : 'outlined'}
       onClick={onClick}
-      sx={{ height: '42px' }}
+      sx={{ height: '42px', maxHeight: '42px' }}
     />
   )
 }

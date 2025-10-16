@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react"
-import { getStatements } from "./services"
 import { StatementsTable } from "./organisms/StatementsTable";
-import type { IStatementResponse } from "./interfaces";
 import { Header } from "./organisms/Header";
 import { Box, Typography } from "@mui/material";
 import { SectionChips } from "./molecules/SectionChips";
+import { useStatement } from "./contexts/statementContext";
 
 function App() {
-  const [statements, setStatements] = useState<IStatementResponse>();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await getStatements();
-
-        setStatements(response);
-      } catch (err) {
-        console.error((err as Error).message);
-      }
-    }
-    )()
-  }, [])
+  const { statements } = useStatement();
 
   return (
     <Box display="flex" flexDirection="column">

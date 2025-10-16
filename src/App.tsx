@@ -4,6 +4,7 @@ import { StatementsTable } from "./organisms/StatementsTable";
 import type { IStatementResponse } from "./interfaces";
 import { Header } from "./organisms/Header";
 import { Box, Typography } from "@mui/material";
+import { SectionChips } from "./molecules/SectionChips";
 
 function App() {
   const [statements, setStatements] = useState<IStatementResponse>();
@@ -24,6 +25,7 @@ function App() {
   return (
     <Box display="flex" flexDirection="column">
       <Header />
+
       <Box 
         display="flex"
         flexDirection="column"
@@ -53,6 +55,9 @@ function App() {
         <Typography variant="h5">
           Extrato
         </Typography>
+
+        <SectionChips />
+
         {statements && 
           <StatementsTable data={statements} />
         }

@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Espresso Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação React + Vite que consome dados de uma API, exibe extratos financeiros em tabelas paginadas, e permite filtrar por mês e tipo de produto. O projeto utiliza Material UI para estilização e React Query para gerenciamento de dados assíncronos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Requisitos**
 
-## React Compiler
+Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Node.js (versão 20.19+ ou superior)
 
-## Expanding the ESLint configuration
+npm ou yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## **Tecnologias Utilizadas**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+React
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+TypeScript
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Vite
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Material UI
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+React Query
+
+Axios
+
+ESLint
+
+
+## **Instalação e Configuração**
+
+npm install ou yarn
+
+Crie um arquivo .env na raiz do projeto e configure a URL base da API: 
+
+- VITE_API_URL=<URL_DA_API>
+
+Após estes passos executar o script dev(npm run dev ou yarn dev)
+
+## Estrutura do Projeto (Atomic Design)
+
+Atoms: Componentes básicos como botões, badges e similares.
+
+Molecules: Combinações de atoms, como cards de resumo, filtros de mês ou valores de transação.
+
+Organisms: Componentes complexos como tabelas de extrato.
+
+Contexts: Providers e hooks para gerenciamento global de estado e filtros.
+
+## Funcionalidades
+Consulta e exibição de extratos financeiros via API.
+
+Filtros por tipo de produto e mês.
+
+Tabela paginada com personalização de linhas por página.

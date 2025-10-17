@@ -3,6 +3,7 @@ import { Header } from "./organisms/Header";
 import { Box, Typography } from "@mui/material";
 import { SectionChips } from "./molecules/SectionChips";
 import { useStatement } from "./contexts/statementContext";
+import { MovementSummary } from "./organisms/MovementSummary";
 
 function App() {
   const { statements } = useStatement();
@@ -42,6 +43,8 @@ function App() {
         </Typography>
 
         <SectionChips />
+
+        <MovementSummary />
 
         {statements && 
           <StatementsTable data={statements} />

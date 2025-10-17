@@ -20,7 +20,7 @@ export const StatementProvider = ({ children }: { children: ReactNode }) => {
     end_date: undefined,
     product_type: undefined,
     page: 1,
-    limit: 10,
+    limit: 20,
   });
 
   const setFilters = (newFilters: Partial<IStatementFilters>) => {

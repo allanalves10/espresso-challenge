@@ -40,14 +40,37 @@ export const MovementSummary = () => {
                 backgroundColor: '#fff',
             }}
         >
-            <Box display="flex" justifyContent="space-between">
+            <Box 
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+                sx={{
+                    flexDirection: {
+                        xs: 'column',
+                        sm: 'column',
+                        md: 'row',
+                        lg: 'row',
+                    },
+                }}
+            >
                 <Typography variant="h6">
                     Resumo de movimentações
                 </Typography>
 
                 <MonthFilter onChange={handleMonthChange} />
             </Box>
-            <Box display="flex" gap="12px">
+            <Box
+                display="flex"
+                gap="12px"
+                sx={{
+                    justifyContent: {
+                        xs: 'center',
+                        sm: 'center',
+                        md: 'flex-start',
+                        lg: 'flex-start',
+                    },
+                }}
+            >
                 <Box display="flex" gap="6px">
                     <IncreaseIcon />
                     <Typography>{formatCurrency(totalCredit)}</Typography>

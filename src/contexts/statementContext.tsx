@@ -10,20 +10,32 @@ interface IStatementContext {
   refetch: () => void;
   filters: IStatementFilters;
   setFilters: (newFilters: Partial<IStatementFilters>) => void;
+  rowsPerPage: number;
+  pageNumber: number;
 }
 
 const StatementContext = createContext<IStatementContext | undefined>(undefined);
 
 export const StatementProvider = ({ children }: { children: ReactNode }) => {
+  const [pageNumber, setPageNumber] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(20);
   const [filters, setFiltersState] = useState<IStatementFilters>({
     start_date: undefined,
     end_date: undefined,
     product_type: undefined,
-    page: 1,
-    limit: 20,
+    page: pageNumber,
+    limit: rowsPerPage,
   });
 
   const setFilters = (newFilters: Partial<IStatementFilters>) => {
+    if (newFilters.page !== undefined) {
+      setPageNumber(newFilters.page);
+    }
+
+    if (newFilters.limit !== undefined) {
+      setRowsPerPage(newFilters.limit);
+    }
+
     setFiltersState((prev) => ({ ...prev, ...newFilters }));
   };
 
@@ -46,6 +58,8 @@ export const StatementProvider = ({ children }: { children: ReactNode }) => {
         refetch,
         filters,
         setFilters,
+        rowsPerPage,
+        pageNumber,
       }}
     >
       {children}
